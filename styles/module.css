@@ -1,0 +1,8 @@
+li.scene-control[data-control="table-ninja"], li.scene-control[data-control="table-ninja"] i {
+    display: flex;
+    height: 36px;
+    width: 36px;
+
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,14 @@
+<div id="table-ninja">
+    {{#each this}}
+        {{#if this.folder}}
+            <button onclick="" class="table-ninja-folder"><i style="float:left;" class="fa fa-folder"></i>{{this.name}}</button>
+        {{else}}
+            <select>
+                {{#each this}}
+                    <option>{{this.text}}</option>
+                {{/each}}
+            </select>
+        {{/if}}
+    {{/each}}
+    <button onclick="ui.tableNinja.refresh()">Refresh</button>
+</div>

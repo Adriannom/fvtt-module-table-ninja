@@ -1,11 +1,11 @@
 {
-  "name": "module",
-  "title": "New Module",
-  "description": "",
+  "name": "table-ninja",
+  "title": "Table Ninja",
+  "description": "Quickly derive a whole host of random data from various tables for your perusal.",
   "version": "0.0.1",
   "minimumCoreVersion": "0.6.2",
-  "compatibleCoreVersion": "0.7.2",
-  "author": "Cody Swendrowski <cody@swendrowski.us>",
+  "compatibleCoreVersion": "0.7.9",
+  "author": "Adriannom",
   "dependencies": [
 
   ],
@@ -25,7 +25,7 @@
       "path": "languages/en.json"
     }
   ],
-  "url": "https://github.com/cswendrowski/FoundryVTT-module",
-  "manifest": "https://github.com/cswendrowski/FoundryVTT-module/releases/download/latest/module.json",
-  "download": "https://github.com/cswendrowski/FoundryVTT-module/releases/download/0.0.1/module.zip"
+  "url": "https://github.com/Adriannom/fvtt-module-table-ninja",
+  "manifest": "https://github.com/adriannom/fvtt-module-table-ninja/releases/download/latest/module.json",
+  "download": "https://github.com/adriannom/fvtt-module-table-ninja/releases/download/0.0.1/module.zip"
 }
