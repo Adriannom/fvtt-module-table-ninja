@@ -45,13 +45,13 @@ class TableNinja extends Application {
     refresh() {
 
         // Retrieve everything from the table folder "Table Ninja".
-        this.data = this.fetchTables(this.tableNinjaFolder);
+        this.data = this.fetchRolls(this.tableNinjaFolder);
     
         this.render();
 
     }
 
-    fetchTables(requestedFolder) {
+    fetchRolls(requestedFolder) {
 
         const tables = requestedFolder.content;
         const folders = requestedFolder.children;
@@ -60,15 +60,19 @@ class TableNinja extends Application {
         // Roll many times on each table.
         for (let i = 0; i < tables.length; i++) {
             let table = tables[i];
-            table.values = this.rollMany(table.name).then((promise) => {
-                output.push(promise.results);
+            this.rollMany(table.name).then((promise) => {
+                console.debug(promise);
+                output.push({
+                    name: table.name,
+                    rolls: promise.results
+                });
             });
         }
 
         // Recurse through subfolders.
         for (let i = 0; i < folders.length; i++) {
             let folder = Object.assign({}, folders[i]);
-            folder.values = this.fetchTables(folder);
+            folder.childEntities = this.fetchRolls(folder);
             folder.name = folders[i].name;
             folder.folder = true;
             output.push(folder);

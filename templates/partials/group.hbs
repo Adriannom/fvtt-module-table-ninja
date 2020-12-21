@@ -1,11 +1,10 @@
 <div class="table-ninja-group">
     <h2>{{this.name}}</h2>
-    {{#each this.values}}
+    {{#each this.childEntities}}
         {{#if this.folder}}
-            <h3>{{this.name}}</h2>
-            
+            {{> "modules/table-ninja/templates/partials/group.hbs"}}
         {{else}}
-            {{> partials.results}}
+            {{> "modules/table-ninja/templates/partials/rolls.hbs"}}
         {{/if}}
     {{/each}}
 </div>
