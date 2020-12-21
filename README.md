@@ -10,7 +10,7 @@
 
 # Table Ninja
 
-Table Ninja makes looking up tables swift and stealthy, so you can maintain game flow while using them.
+Table Ninja makes looking up chosen tables swift and stealthy, so you can maintain game flow while using them.
 
 ## Installation
 
