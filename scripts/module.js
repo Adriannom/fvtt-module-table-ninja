@@ -97,3 +97,11 @@ Hooks.once('ready', async function() {
         ui.tableNinja = new TableNinja();
     }
 });
+
+async function preloadHandlebarsTemplates() {
+    return loadTemplates(Object.values(TEMPLATE_PATHS));
+};
+
+Hooks.once("init", function () {
+    preloadHandlebarsTemplates();
+});

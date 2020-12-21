@@ -26,6 +26,6 @@
     }
   ],
   "url": "https://github.com/Adriannom/fvtt-module-table-ninja",
-  "manifest": "https://github.com/adriannom/fvtt-module-table-ninja/releases/download/latest/module.json",
-  "download": "https://github.com/adriannom/fvtt-module-table-ninja/releases/download/0.0.1/module.zip"
+  "manifest": "https://raw.githubusercontent.com/Adriannom/fvtt-module-table-ninja/master/module.json",
+  "download": "https://github.com/Adriannom/fvtt-module-table-ninja/archive/master.zip"
 }
