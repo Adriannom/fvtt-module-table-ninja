@@ -2,6 +2,7 @@ import {TEMPLATE_PATHS} from "./config.js";
 
 class TableNinja extends Application {
 
+    template = TEMPLATE_PATHS.main;
     tableNinjaFolderName = "Table Ninja";
     numberToDraw = 30;
 
@@ -14,7 +15,10 @@ class TableNinja extends Application {
     }
 
     getData() {
-        return this.data;
+        return {
+            data: this.data,
+            partials: TEMPLATE_PATHS
+        }
     }
 
     constructor(options = {}) {

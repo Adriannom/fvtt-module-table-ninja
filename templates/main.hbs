@@ -9,9 +9,9 @@
 </section>
 
 <div id="table-ninja">
-    {{#each this}}
+    {{#each this.data}}
         {{#if this.folder}}
-            {{> templatePaths.group}}
+            {{> partials.group}}
         {{else}}
             <select>
                 {{#each this}}

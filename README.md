@@ -18,7 +18,7 @@ Table Ninja makes looking up chosen tables swift and stealthy, so you can mainta
 
 ## Usage
 
-Click on the new ninja icon on the scene controls.
+In the tables tab on the top right of Foundry select the tables tab. Add a folder named "Table Ninja". Put some tables in there, and click on the new ninja icon on the scene controls.
 
 ## Credits
 
