@@ -8,6 +8,18 @@ li.scene-control[data-control="table-ninja"], li.scene-control[data-control="tab
 
 .table-ninja-group {
     padding: 5px;
-    background-color: #999;
+    background-color: rgba(200, 200, 200, 0.5);
+    border: 1px solid #bbb;
     margin-bottom: 5px;
+    border-radius: 7px;
+}
+
+.table-ninja-group .table-ninja-group  {
+
+    border-color: #999;
+    margin: 5px;
+}
+
+.table-ninja-group .table-ninja-group h2 {
+    border-color: #888;
 }
