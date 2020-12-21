@@ -1,11 +1,14 @@
+import {TEMPLATE_PATHS} from "./config.js";
+
 class TableNinja extends Application {
 
-    template = "modules/table-ninja/templates/main.hbs";
-    
+    tableNinjaFolderName = "Table Ninja";
+    numberToDraw = 30;
+
     static get defaultOptions() {
         const options = super.defaultOptions
-        options.width = 200;
-        options.height= 200;
+        options.width = 300;
+        options.height= 500;
         options.resizable = true;
         return options;
     }
@@ -16,10 +19,15 @@ class TableNinja extends Application {
 
     constructor(options = {}) {
         super(options);
+        this.tableNinjaFolder = game.folders.filter(x => x.data.type == "RollTable").find(b => b.name === this.tableNinjaFolderName);
         this.refresh();
+        this.tabs = new Tabs({navSelector: ".tabs", contentSelector: ".content", initial: "tab1"});
+        //this.tabs.bind(html);
     }
 
     toggleOpen() {
+
+        // Clicking on the button toggles the application view.
         if (game.user.isGM) {
             if (this.rendered) {
                 this.close();
@@ -27,42 +35,49 @@ class TableNinja extends Application {
                 this.render(true);
             }
         }
+
     }
 
     refresh() {
-        
-        this.data = [];
 
         // Retrieve everything from the table folder "Table Ninja".
-        const tableNinjaFolder = game.folders.filter(x => x.data.type == "RollTable").find(b => b.name === "Table Ninja");
-        const tables = tableNinjaFolder.content;
-        const folders = tableNinjaFolder.children;
+        this.data = this.fetchTables(this.tableNinjaFolder);
+    
+        this.render();
+
+    }
+
+    fetchTables(requestedFolder) {
+
+        const tables = requestedFolder.content;
+        const folders = requestedFolder.children;
+        let output = [];
 
         // Roll many times on each table.
         for (let i = 0; i < tables.length; i++) {
             let table = tables[i];
-            table.values = this.rollMany(table.name).then((p) => {
-                this.data.push(p.results);
+            table.values = this.rollMany(table.name).then((promise) => {
+                output.push(promise.results);
             });
         }
 
-        // First level of folders will be turned into tabs. Second level will be groups of results.
+        // Recurse through subfolders.
         for (let i = 0; i < folders.length; i++) {
             let folder = Object.assign({}, folders[i]);
-            folder.content = folders[i].content;
+            folder.values = this.fetchTables(folder);
             folder.name = folders[i].name;
             folder.folder = true;
-            this.data.push(folder);
+            output.push(folder);
         }
 
-        this.render();
+        return output;
 
     }
 
     rollMany(rollTableName) {
         const rollTable = game.tables.entities.find(b => b.name === rollTableName);
         if (rollTable.data.results.length > 0) {
-            let promise = rollTable.drawMany(30, {displayChat: false});
+            let promise = rollTable.drawMany(this.numberToDraw, {displayChat: false});
             return promise;
         }
     }

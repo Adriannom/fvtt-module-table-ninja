@@ -1,0 +1,18 @@
+<div class="table-ninja-group">
+    <h2>{{this.name}}</h2>
+    {{#each this.values}}
+        {{#if this.folder}}
+            <div class="table-ninja-group">{{this.name}}
+                {{#each this.contents}}
+                    {{this.text}}
+                {{/each}}
+            </div>
+        {{else}}
+            <select>
+                {{#each this}}
+                    <option>{{this.text}}</option>
+                {{/each}}
+            </select>
+        {{/if}}
+    {{/each}}
+</div>

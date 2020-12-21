@@ -19,3 +19,8 @@ Table Ninja makes looking up chosen tables swift and stealthy, so you can mainta
 ## Usage
 
 Click on the new ninja icon on the scene controls.
+
+## Credits
+
+Thanks to Calego, errational, Mougli, Rughalt.
+If I've missed you, poke me.
