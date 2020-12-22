@@ -2,14 +2,16 @@ import {TEMPLATE_PATHS} from "./config.js";
 
 class TableNinja extends Application {
 
+    id = "table-ninja-prime";
+    title = "Table Ninja";
     template = TEMPLATE_PATHS.main;
     tableNinjaFolderName = "Table Ninja";
     numberToDraw = 30;
 
     static get defaultOptions() {
         const options = super.defaultOptions
-        options.width = 300;
-        options.height= 500;
+        options.width = 400;
+        options.height= 600;
         options.resizable = true;
         return options;
     }
@@ -61,8 +63,8 @@ class TableNinja extends Application {
         for (let i = 0; i < tables.length; i++) {
             let table = tables[i];
             this.rollMany(table.name).then((promise) => {
-                console.debug(promise);
                 output.push({
+                    id: table.id,
                     name: table.name,
                     rolls: promise.results
                 });
@@ -85,8 +87,7 @@ class TableNinja extends Application {
     rollMany(rollTableName) {
         const rollTable = game.tables.entities.find(b => b.name === rollTableName);
         if (rollTable.data.results.length > 0) {
-            let promise = rollTable.drawMany(this.numberToDraw, {displayChat: false});
-            return promise;
+            return rollTable.drawMany(this.numberToDraw, {displayChat: false});
         }
     }
 
@@ -106,10 +107,18 @@ Hooks.once('ready', async function() {
     }
 });
 
+Hooks.once("init", function () {
+    preloadHandlebarsTemplates();
+});
+
 async function preloadHandlebarsTemplates() {
     return loadTemplates(Object.values(TEMPLATE_PATHS));
 };
 
-Hooks.once("init", function () {
-    preloadHandlebarsTemplates();
+Handlebars.registerHelper('table-ninja-truncate', function(s) {
+    let output = s;
+    if (s.length > 70) {
+        output = '<div class="table-ninja-read-more" title="' + s + '">' + s.substring(0,67) + '...</div>';
+    }
+    return output;
 });

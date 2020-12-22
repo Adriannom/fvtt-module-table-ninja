@@ -1,16 +1,22 @@
 <!--
 <nav class="tabs" data-group="primary-tabs">
-  <a class="item" data-tab="tab1">Tab 1</li>
-  <a class="item" data-tab="tab2">Tab 2</li>
+    <a class="item" data-tab="tab1">Tab 1</li>
+    <a class="item" data-tab="tab2">Tab 2</li>
 </nav>
 
 <section class="content">
-  <div class="tab" data-tab="tab1" data-group="primary-tabs">Content 1</div>
-  <div class="tab" data-tab="tab2" data-group="primary-tabs">Content 2</div>
+    <div class="tab" data-tab="tab1" data-group="primary-tabs">Content 1</div>
+    <div class="tab" data-tab="tab2" data-group="primary-tabs">Content 2</div>
 </section>
 -->
 
-<div id="table-ninja">
+<script type="text/javascript">
+    function updateText(textId, newText) {
+        document.getElementById(textId).innerHTML = newText;
+    }
+</script>
+
+<div class="table-ninja-content">
     {{#if this.data.length}}
         {{#each this.data}}
             {{#if this.folder}}
@@ -23,5 +29,7 @@
         <p>To get started, drag some tables into the Table Ninja folder in the Tables tab then hit refresh.</p>
         <p>You can also categorise things by making subfolders!</p>
     {{/if}}
+</div>
+<div class="table-ninja-controls">
     <button onclick="ui.tableNinja.refresh()"><i class="fa fa-random"></i> Refresh</button>
 </div>

@@ -9,7 +9,7 @@ li.scene-control[data-control="table-ninja"], li.scene-control[data-control="tab
     padding: 5px;
     background-color: rgba(200, 200, 200, 0.5);
     border: 1px solid #bbb;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     border-radius: 7px;
 }
 .table-ninja-group .table-ninja-group  {
@@ -37,6 +37,7 @@ li.scene-control[data-control="table-ninja"], li.scene-control[data-control="tab
 }
 .table-ninja-label {
     display: inline-block;
+    font-weight: bold;
 }
 .table-ninja-result {
     margin-bottom: 5px;
@@ -47,4 +48,20 @@ li.scene-control[data-control="table-ninja"], li.scene-control[data-control="tab
     margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: none;
+}
+.table-ninja-read-more:hover {
+    color: #888;
+}
+#table-ninja-prime .window-content {
+    padding: 0;
+}
+.table-ninja-content {
+    padding: 10px 10px 50px 10px;
+}
+.table-ninja-controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 8px 25px;
 }
