@@ -1,9 +1,10 @@
-<label>
-    {{this.name}}
-</label><br>
-
-<select>
-    {{#each this.rolls}}
-        <option>{{this.text}}</option>
-    {{/each}}
-</select><br><br>
+<div class="table-ninja-result">
+    <!--<a class="button table-ninja-reroll"><i class="fa fa-dice"></i></a>-->
+    <select class="button table-ninja-select">
+        {{#each this.rolls}}
+            <option>{{this.text}}</option>
+        {{/each}}
+    </select>
+    <label>{{this.name}}</label>
+    <div class="table-ninja-text">{{this.rolls.0.text}}</div>
+</div>

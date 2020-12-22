@@ -11,12 +11,17 @@
 -->
 
 <div id="table-ninja">
-    {{#each this.data}}
-        {{#if this.folder}}
-            {{> "modules/table-ninja/templates/partials/group.hbs"}}
-        {{else}}
-            {{> "modules/table-ninja/templates/partials/rolls.hbs"}}
-        {{/if}}
-    {{/each}}
+    {{#if this.data.length}}
+        {{#each this.data}}
+            {{#if this.folder}}
+                {{> "modules/table-ninja/templates/partials/group.hbs"}}
+            {{else}}
+                {{> "modules/table-ninja/templates/partials/rolls.hbs"}}
+            {{/if}}
+        {{/each}}
+    {{else}}
+        <p>To get started, drag some tables into the Table Ninja folder in the Tables tab then hit refresh.</p>
+        <p>You can also categorise things by making subfolders!</p>
+    {{/if}}
     <button onclick="ui.tableNinja.refresh()"><i class="fa fa-random"></i> Refresh</button>
 </div>

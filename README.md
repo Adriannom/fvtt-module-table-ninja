@@ -14,11 +14,17 @@ Table Ninja makes looking up chosen tables swift and stealthy, so you can mainta
 
 ## Installation
 
-...
+Go to Foundry setup, modules, and add new module:
+
+https://raw.githubusercontent.com/Adriannom/fvtt-module-table-ninja/master/module.json
+
+Then load your world, go to manage modules in the Game Settings tab and enable Table Ninja.
+
+Finally, create a "Table Ninja" folder in your Rollable Tables tab.
 
 ## Usage
 
-In the tables tab on the top right of Foundry select the tables tab. Add a folder named "Table Ninja". Put some tables in there, and click on the new ninja icon on the scene controls.
+Put some tables/folders in the "Table Ninja" folder, and click on the new ninja icon on the scene controls and hit refresh.
 
 ## Credits
 
