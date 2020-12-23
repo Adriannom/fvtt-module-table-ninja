@@ -9,7 +9,7 @@ class TableNinja extends Application {
 
     static get defaultOptions() {
         const options = super.defaultOptions
-        options.width = 400;
+        options.width = 480;
         options.height = 600;
         options.resizable = true;
         return options;
@@ -112,11 +112,3 @@ Hooks.once("init", function () {
 async function preloadHandlebarsTemplates() {
     return loadTemplates(Object.values(config.templatePaths));
 };
-
-Handlebars.registerHelper('table-ninja-truncate', function(s) {
-    let output = s;
-    if (s.length > 70) {
-        output = '<div class="table-ninja-read-more" title="' + s + '">' + s.substring(0,67) + '...</div>';
-    }
-    return output;
-});

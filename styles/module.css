@@ -11,6 +11,10 @@ li.scene-control[data-control="table-ninja"], li.scene-control[data-control="tab
     border: 1px solid #bbb;
     margin-bottom: 15px;
     border-radius: 7px;
+    width: 100%;
+}
+.table-ninja-group h2 {
+    width: 100%;
 }
 .table-ninja-group .table-ninja-group  {
     border-color: #999;
@@ -40,9 +44,12 @@ li.scene-control[data-control="table-ninja"], li.scene-control[data-control="tab
     font-weight: bold;
 }
 .table-ninja-result {
-    margin-bottom: 5px;
+    margin: 0 15px 5px 0;
     padding-bottom: 5px;
-    border-bottom: 1px solid #888;
+    width: 200px;
+    position: relative;
+    overflow: hidden;
+    height: 100px;
 }
 .table-ninja-result:last-child {
     margin-bottom: 0;
@@ -58,10 +65,23 @@ li.scene-control[data-control="table-ninja"], li.scene-control[data-control="tab
 .table-ninja-content {
     padding: 10px 10px 50px 10px;
 }
+.table-ninja-content, .table-ninja-group {
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+}
+.table-ninja-results-header {
+    white-space: nowrap;
+    overflow: hidden;
+}
 .table-ninja-controls {
     position: absolute;
     bottom: 0;
     width: 100%;
     background-color: #333;
     padding: 8px 25px;
+}
+.overflowing {
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 }

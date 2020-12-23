@@ -14,6 +14,14 @@
     function updateText(textId, newText) {
         document.getElementById(textId).innerHTML = newText;
     }
+    function overflowManager(id) {
+        let element = document.getElementById(id);
+        if (element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth) {
+            element.classList.add("overflowing");
+        } else {
+            element.classList.remove("overflowing");
+        }
+    };
 </script>
 
 <div class="table-ninja-content">

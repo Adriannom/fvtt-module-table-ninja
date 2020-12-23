@@ -1,10 +1,15 @@
-<div class="table-ninja-result">
-    <a class="button table-ninja-reroll" onclick="ui.tableNinja.rollOneTable('{{this.id}}')"><i class="fa fa-dice"></i></a>
-    <select onchange="updateText('ninja-{{this.id}}', this.value)" class="button table-ninja-select">
-        {{#each this.rolls}}
-            <option>{{this.text}}</option>
-        {{/each}}
-    </select>
-    <label class="table-ninja-label">{{this.name}}</label>
-    <div id="ninja-{{this.id}}" class="table-ninja-text">{{{table-ninja-truncate this.rolls.0.text}}}</div>
+<div id="ninja-result-{{this.id}}" onchange="overflowManager(this.id)" class="table-ninja-result">
+    <div class="table-ninja-results-header">
+        <a class="button table-ninja-reroll" onclick="ui.tableNinja.rollOneTable('{{this.id}}')"><i class="fa fa-dice"></i></a>
+        <select onchange="updateText('ninja-{{this.id}}', this.value)" class="button table-ninja-select">
+            {{#each this.rolls}}
+                <option>{{this.text}}</option>
+            {{/each}}
+        </select>
+        <label class="table-ninja-label">{{this.name}}</label>
+    </div>
+    <div id="ninja-{{this.id}}" class="table-ninja-text">{{{this.rolls.0.text}}}</div>
 </div>
+<script type="text/javascript">
+    overflowManager("ninja-result-{{this.id}}");
+</script>
