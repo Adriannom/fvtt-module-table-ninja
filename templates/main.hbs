@@ -17,12 +17,12 @@
 </script>
 
 <div class="table-ninja-content">
-    {{#if this.data.length}}
-        {{#each this.data}}
-            {{#if this.folder}}
+    {{#if this.data.childEntities.length}}
+        {{#each this.data.childEntities}}
+            {{#if this.isFolder}}
                 {{> "modules/table-ninja/templates/partials/group.hbs"}}
             {{else}}
-                {{> "modules/table-ninja/templates/partials/rolls.hbs"}}
+                {{> "modules/table-ninja/templates/partials/table.hbs"}}
             {{/if}}
         {{/each}}
     {{else}}

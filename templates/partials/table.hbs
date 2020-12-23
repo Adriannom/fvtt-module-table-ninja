@@ -1,5 +1,5 @@
 <div class="table-ninja-result">
-    <!--<a class="button table-ninja-reroll"><i class="fa fa-dice"></i></a>-->
+    <a class="button table-ninja-reroll" onclick="ui.tableNinja.rollOneTable('{{this.id}}')"><i class="fa fa-dice"></i></a>
     <select onchange="updateText('ninja-{{this.id}}', this.value)" class="button table-ninja-select">
         {{#each this.rolls}}
             <option>{{this.text}}</option>
