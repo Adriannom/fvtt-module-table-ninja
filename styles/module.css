@@ -112,14 +112,21 @@ li.scene-control[data-control="table-ninja"], li.scene-control[data-control="tab
 }
 .table-ninja-choose li {
     list-style: none;
-    padding: 15px;
-    margin: 0;  
+    padding: 13px;
+    margin: 2px;  
     cursor: pointer;
+    border-radius: 8px;
 }
 .table-ninja-choose li:hover {
     background-color: #575050;
-    border-radius: 8px;
+}
+.table-ninja-choose li.table-ninja-selected:hover {
+    background-color: #d7d0d0;
 }
 .table-ninja-choosing {
     display: block;
+}
+.table-ninja-selected {
+    background-color: #c7c0c0;
+    color: #171010;
 }

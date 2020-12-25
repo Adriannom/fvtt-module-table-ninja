@@ -12,7 +12,7 @@
     <h2>{{this.name}}</h2>
     <ul>
         {{#each this.rolls}}
-            <li onclick="ui.tableNinja.updateText('{{../id}}', {{@index}}, this.innerHTML)">{{this.text}}</li>
+            <li {{#ifCond ../selected '==' @index}}class="table-ninja-selected"{{/ifCond}} onclick="ui.tableNinja.updateText('{{../id}}', {{@index}}, this.innerHTML)">{{this.text}}</li>
         {{/each}}
     </ul>
 </div>
