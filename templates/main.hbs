@@ -17,9 +17,9 @@
     function overflowManager(id) {
         let element = document.getElementById(id);
         if (element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth) {
-            element.classList.add("overflowing");
+            element.classList.add("table-ninja-overflowing");
         } else {
-            element.classList.remove("overflowing");
+            element.classList.remove("table-ninja-overflowing");
         }
     };
 </script>
