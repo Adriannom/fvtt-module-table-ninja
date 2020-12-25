@@ -69,6 +69,7 @@ class TableNinja extends Application {
                 table.ninjaRoll = async function () {
                     return this.drawMany(config.numberOfRolls, {displayChat: false}).then((promise) => {
                         this.rolls = promise.results;
+                        this.selected = 0;
                         return this;
                     });
                 }
@@ -87,6 +88,19 @@ class TableNinja extends Application {
         table.ninjaRoll().then(() => {
             this.render();
         });
+    }
+
+    choose(id) {
+        let element = document.getElementById(id);
+        element.classList.add("table-ninja-choosing");
+    }    
+
+    updateText(id, index, newText) {
+        document.getElementById("ninja-" + id).innerHTML = newText;
+        document.getElementById("ninja-choose-" + id).classList.remove('table-ninja-choosing');
+        let table = game.tables.find(b => b.id === id);
+        table.selected = index;
+        this.render();
     }
 
 }
@@ -112,3 +126,7 @@ Hooks.once("init", function () {
 async function preloadHandlebarsTemplates() {
     return loadTemplates(Object.values(config.templatePaths));
 };
+
+Handlebars.registerHelper('tableNinjaSelectedText', function (table) {
+    return table.rolls[table.selected].text;
+})
