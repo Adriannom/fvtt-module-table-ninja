@@ -93,6 +93,10 @@ class TableNinja extends Application {
     choose(id) {
         let element = document.getElementById(id);
         element.classList.add("table-ninja-choosing");
+        if (element.selected > 0) {
+            let selected = document.querySelector("#" + id + " .table-ninja-selected");
+            selected.scrollIntoView();
+        }
     }    
 
     updateText(id, index, newText) {
