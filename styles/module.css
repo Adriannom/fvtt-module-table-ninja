@@ -82,8 +82,8 @@ li.scene-control[data-control="table-ninja"], li.scene-control[data-control="tab
     padding: 8px 25px;
 }
 .table-ninja-overflowing {
-    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
 }
 
 /* Choose */
