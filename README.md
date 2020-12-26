@@ -10,7 +10,9 @@
 
 # Table Ninja
 
-Table Ninja makes looking up chosen tables swift and stealthy, so you can maintain game flow while using them. Maybe you have a whole bunch of tables for use in game that you never use because play gets too clunky. Or maybe you would use tables for on-the-fly inspiration if there was a slicker way of doing so. If either of these are true, this module is for you.
+Table Ninja makes looking up chosen tables swift and stealthy, so that you can maintain game flow while using them.
+
+Maybe you have a whole bunch of tables for use in game that you never use because play gets too clunky when you do. Or maybe you would use tables for on-the-fly inspiration if there was a slicker way of doing so. If either of these are true, this module is for you.
 
 ## Installation
 
@@ -20,11 +22,15 @@ https://raw.githubusercontent.com/Adriannom/fvtt-module-table-ninja/master/modul
 
 Then load your world, go to manage modules in the Game Settings tab and enable Table Ninja.
 
-Finally, create a "Table Ninja" folder in your Rollable Tables tab.
-
 ## Usage
 
-Put some tables/folders in the "Table Ninja" folder, and click on the new ninja icon on the scene controls and hit refresh.
+![](./images/table-ninja-demo.gif)
+
+You have to supply your own tables. One good source of tables is the "Foundry Community Tables" module. When you have some, put them in the "Table Ninja" folder, and click on the new ninja icon in scene controls. If your tables aren't there, hit refresh.
+
+You can use subfolders too:
+
+![](./images/table-structure-example.gif)
 
 ## Credits
 
