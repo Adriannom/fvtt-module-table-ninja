@@ -2,15 +2,15 @@ import * as config from "./config.js";
 
 class TableNinja extends Application {
 
-    id = "table-ninja-prime";
+    id = "tninja-prime";
     title = "Table Ninja";
     template = config.templatePaths.main;
     tableNinjaFolderName = "Table Ninja";
 
     static get defaultOptions() {
         const options = super.defaultOptions
-        options.width = 480;
-        options.height = 600;
+        options.width = 666;
+        options.height = 666;
         options.resizable = true;
         return options;
     }
@@ -92,16 +92,16 @@ class TableNinja extends Application {
 
     choose(id) {
         let element = document.getElementById(id);
-        element.classList.add("table-ninja-choosing");
+        element.classList.add("tninja-choosing");
         if (element.selected > 0) {
-            let selected = document.querySelector("#" + id + " .table-ninja-selected");
+            let selected = document.querySelector("#" + id + " .tninja-selected");
             selected.scrollIntoView();
         }
     }    
 
     updateText(id, index, newText) {
         document.getElementById("ninja-" + id).innerHTML = newText;
-        document.getElementById("ninja-choose-" + id).classList.remove('table-ninja-choosing');
+        document.getElementById("ninja-choose-" + id).classList.remove('tninja-choosing');
         let table = game.tables.find(b => b.id === id);
         table.selected = index;
         this.render();
