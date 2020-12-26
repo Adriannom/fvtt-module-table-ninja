@@ -11,6 +11,7 @@
 -->
 
 <script type="text/javascript">
+
     function overflowManager(id) {
         let element = document.getElementById(id);
         if (element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth) {
@@ -19,6 +20,25 @@
             element.classList.remove("tninja-overflowing");
         }
     };
+
+    function tninjaCopyToClipboard(id, win) {
+        el = document.getElementById(id);
+        win = win || window;
+        var doc = win.document, sel, range;
+        if (win.getSelection && doc.createRange) {
+            sel = win.getSelection();
+            range = doc.createRange();
+            range.selectNodeContents(el);
+            sel.removeAllRanges();
+            sel.addRange(range);
+        } else if (doc.body.createTextRange) {
+            range = doc.body.createTextRange();
+            range.moveToElementText(el);
+            range.select();
+        }
+        document.execCommand('copy');
+    }
+
 </script>
 
 <div class="tninja-content">

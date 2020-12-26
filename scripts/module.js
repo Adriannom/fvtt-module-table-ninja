@@ -116,11 +116,11 @@ class TableNinja extends Application {
             let selected = document.querySelector("#" + id + " .tninja-selected");
             selected.scrollIntoView();
         }
-    }    
+    }
 
     updateText(id, index, newText) {
-        document.getElementById("ninja-" + id).innerHTML = newText;
-        document.getElementById("ninja-choose-" + id).classList.remove('tninja-choosing');
+        document.getElementById("tninja-text-" + id).innerHTML = newText;
+        document.getElementById("tninja-choose-" + id).classList.remove('tninja-choosing');
         let table = game.tables.find(b => b.id === id);
         table.selected = index;
         this.render();
