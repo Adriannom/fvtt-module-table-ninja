@@ -10,7 +10,7 @@
 
 # Table Ninja
 
-Table Ninja makes looking up chosen tables swift and stealthy, so you can maintain game flow while using them.
+Table Ninja makes looking up chosen tables swift and stealthy, so you can maintain game flow while using them. Maybe you have a whole bunch of tables for use in game that you never use because play gets too clunky. Or maybe you would use tables for on-the-fly inspiration if there was a slicker way of doing so. If either of these are true, this module is for you.
 
 ## Installation
 
@@ -27,6 +27,8 @@ Finally, create a "Table Ninja" folder in your Rollable Tables tab.
 Put some tables/folders in the "Table Ninja" folder, and click on the new ninja icon on the scene controls and hit refresh.
 
 ## Credits
+
+Created by Adriannom.
 
 Thanks to Calego, errational, Mougli, Rughalt.
 If I've missed you, poke me.

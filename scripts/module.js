@@ -5,7 +5,7 @@ class TableNinja extends Application {
     id = "tninja-prime";
     title = "Table Ninja";
     template = config.templatePaths.main;
-    tableNinjaFolderName = "Table Ninja";
+    folderName = "Table Ninja";
 
     static get defaultOptions() {
         const options = super.defaultOptions
@@ -23,8 +23,23 @@ class TableNinja extends Application {
 
     constructor(options = {}) {
         super(options);
-        this.data = game.folders.filter(x => x.data.type == "RollTable").find(b => b.name === this.tableNinjaFolderName);
-        this.refresh();
+        this.data = game.folders.filter(x => x.data.type == "RollTable").find(b => b.name === this.folderName);
+        if (!this.data) {
+            console.debug("Creating folder");
+            Folder.create(
+                {
+                  name: this.folderName,
+                  type: "RollTable",
+                  parent: null
+                },
+                { displaySheet: false }
+            ).then((promise) => {
+                this.data = promise;
+                this.refresh();
+            });
+        } else {
+            this.refresh();
+        }
         this.tabs = new Tabs({navSelector: ".tabs", contentSelector: ".content", initial: "tab1"});
         //this.tabs.bind(html);
     }
@@ -57,26 +72,30 @@ class TableNinja extends Application {
         
         // Erase child entities and combine folders and tables.
         folder.childEntities = [];
-        for (let i = 0; i < subFolders.length; i++) {
-            let subFolder = subFolders[i];
-            this.initData(subFolder).then((promise) => {
-                folder.childEntities.push(promise);
-            })
-        }
-        for (let i = 0; i < tables.length; i++) {
-            let table = tables[i];
-            if (typeof table.ninjaRoll === "undefined") {
-                table.ninjaRoll = async function () {
-                    return this.drawMany(config.numberOfRolls, {displayChat: false}).then((promise) => {
-                        this.rolls = promise.results;
-                        this.selected = 0;
-                        return this;
-                    });
-                }
+        if (typeof subFolders !== 'undefined') {
+            for (let i = 0; i < subFolders.length; i++) {
+                let subFolder = subFolders[i];
+                this.initData(subFolder).then((promise) => {
+                    folder.childEntities.push(promise);
+                })
             }
-            table.ninjaRoll().then((promise) => {
-                folder.childEntities.push(promise);
-            });
+        }
+        if (typeof subFolders !== 'undefined') {
+            for (let i = 0; i < tables.length; i++) {
+                let table = tables[i];
+                if (typeof table.ninjaRoll === "undefined") {
+                    table.ninjaRoll = async function () {
+                        return this.drawMany(config.numberOfRolls, {displayChat: false}).then((promise) => {
+                            this.rolls = promise.results;
+                            this.selected = 0;
+                            return this;
+                        });
+                    }
+                }
+                table.ninjaRoll().then((promise) => {
+                    folder.childEntities.push(promise);
+                });
+            }
         }
 
         return folder;
