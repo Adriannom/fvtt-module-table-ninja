@@ -30,7 +30,7 @@ You have to supply your own tables. One good source of tables is the "Foundry Co
 
 You can use subfolders too:
 
-![](./images/table-structure-example.gif)
+![](./images/table-structure-example.png)
 
 ## Credits
 
