@@ -13,6 +13,7 @@
 <script type="text/javascript">
 
     function overflowManager(id) {
+        // If content is overflowing, set a class on the element indicating as much.
         let element = document.getElementById(id);
         if (element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth) {
             element.classList.add("tninja-overflowing");
@@ -22,6 +23,7 @@
     };
 
     function tninjaCopyToClipboard(id) {
+        // Create a textarea to copy from, because other methods don't work in Foundry.
         let element = document.getElementById(id);
         let textarea = document.createElement('textarea');
         textarea.value = element.innerText;

@@ -23,8 +23,11 @@ class TableNinja extends Application {
 
     constructor(options = {}) {
         super(options);
+
+        // Set this.data to the main Table Ninja folder.
         this.data = game.folders.filter(x => x.data.type == "RollTable").find(b => b.name === this.folderName);
         if (!this.data) {
+            // Folder doesn't exist, so create it.
             console.debug("Creating folder");
             Folder.create(
                 {
@@ -34,10 +37,12 @@ class TableNinja extends Application {
                 },
                 { displaySheet: false }
             ).then((promise) => {
+                // Initialise the rest of the data tree when done.
                 this.data = promise;
                 this.refresh();
             });
         } else {
+            // Initialise the data tree.
             this.refresh();
         }
         this.tabs = new Tabs({navSelector: ".tabs", contentSelector: ".content", initial: "tab1"});
@@ -75,15 +80,17 @@ class TableNinja extends Application {
         if (typeof subFolders !== 'undefined') {
             for (let i = 0; i < subFolders.length; i++) {
                 let subFolder = subFolders[i];
+                // Recurse with subfolders.
                 this.initData(subFolder).then((promise) => {
                     folder.childEntities.push(promise);
                 })
             }
         }
-        if (typeof subFolders !== 'undefined') {
+        if (typeof tables !== 'undefined') {
             for (let i = 0; i < tables.length; i++) {
                 let table = tables[i];
                 if (typeof table.ninjaRoll === "undefined") {
+                    // Add a special roll function to the table.
                     table.ninjaRoll = async function () {
                         return this.drawMany(config.numberOfRolls, {displayChat: false}).then((promise) => {
                             this.rolls = promise.results;
@@ -92,6 +99,7 @@ class TableNinja extends Application {
                         });
                     }
                 }
+                // Preroll a list of results from the table.
                 table.ninjaRoll().then((promise) => {
                     folder.childEntities.push(promise);
                 });
@@ -110,6 +118,7 @@ class TableNinja extends Application {
     }
 
     choose(id) {
+        // Bring up the list of prerolled results from the table so the user can choose one.
         let element = document.getElementById(id);
         element.classList.add("tninja-choosing");
         if (element.selected > 0) {
