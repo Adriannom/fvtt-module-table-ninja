@@ -24,6 +24,33 @@ li.scene-control[data-control="table-ninja"], li.scene-control[data-control="tab
     flex-wrap: wrap;
 }
 
+/* Tabs & Controls */
+
+.tninja-tabs {
+    background-color: #333;
+    color: #fff;
+    padding: 0 5px;
+}
+.tninja-tabs .item {
+    padding: 10px;
+    margin: 2px 2px 0 2px;
+}
+.tninja-tabs .item.active {
+    border: 1px solid #000;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: none;
+    background: linear-gradient(0deg, rgba(255,255,255,0.4), rgba(0,0,0,0)), url(/ui/parchment.jpg) repeat;
+    color: #000;
+}
+.tninja-controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 8px 25px;
+}
+
 /* Groups */
 
 .tninja-group {
@@ -70,13 +97,6 @@ li.scene-control[data-control="table-ninja"], li.scene-control[data-control="tab
 .tninja-table-header {
     white-space: nowrap;
     overflow: hidden;
-}
-.tninja-controls {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: #333;
-    padding: 8px 25px;
 }
 .tninja-overflowing {
     -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);

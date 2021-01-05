@@ -8,11 +8,19 @@ class TableNinja extends Application {
     folderName = "Table Ninja";
 
     static get defaultOptions() {
-        const options = super.defaultOptions
-        options.width = 666;
-        options.height = 666;
-        options.resizable = true;
-        return options;
+        return mergeObject(super.defaultOptions, {
+            tabs: [
+                {
+                    contentSelector: '.tninja-tab-content',
+                    navSelector: '.tninja-tabs',
+                    initial: 'bRDmKm88zkVBMvJB'
+                }
+            ],
+            classes: ["sheet", "actor"],
+            width: 666,
+            height: 666,
+            resizable: true
+        });
     }
 
     getData() {
@@ -45,8 +53,6 @@ class TableNinja extends Application {
             // Initialise the data tree.
             this.refresh();
         }
-        this.tabs = new Tabs({navSelector: ".tabs", contentSelector: ".content", initial: "tab1"});
-        //this.tabs.bind(html);
     }
 
     toggleOpen() {

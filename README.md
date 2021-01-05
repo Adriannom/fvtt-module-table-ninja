@@ -36,5 +36,5 @@ You can use subfolders too:
 
 Created by Adriannom.
 
-Thanks to Calego, errational, Mougli, Rughalt.
+Thanks to bmarian, Calego, errational, Mougli, Rughalt.
 If I've missed you, poke me.
