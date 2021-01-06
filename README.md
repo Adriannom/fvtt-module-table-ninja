@@ -14,6 +14,15 @@ Table Ninja makes looking up chosen tables swift and stealthy, so that you can m
 
 Maybe you have a whole bunch of tables for use in game that you never use because play gets too clunky when you do. Or maybe you would use tables for on-the-fly inspiration if there was a slicker way of doing so. If either of these are true, this module is for you.
 
+It works like this:
+
+1. At the click of a button it shows a random result from each table all in the same window.
+2. If you're not happy with a result, you can reroll that table or all the tables at once.
+3. If you need to quickly vet results, instead of rerolling you can peruse a big random selection of results from a table.
+4. You can click the copy button to easily copy a result for use elsewhere.
+
+![](./images/table-ninja-demo.gif)
+
 ## Installation
 
 Go to Foundry setup, modules, and add new module:
@@ -24,13 +33,13 @@ Then load your world, go to manage modules in the Game Settings tab and enable T
 
 ## Usage
 
-![](./images/table-ninja-demo.gif)
+You currently have to supply your own tables. One good source of tables is the "Foundry Community Tables" module.
 
-You have to supply your own tables. One good source of tables is the "Foundry Community Tables" module. When you have some, put them in the "Table Ninja" folder, and click on the new ninja icon in scene controls. If your tables aren't there, hit refresh.
-
-You can use subfolders too:
+Create Subfolders within the Table Ninja folder under the "Rollable Tables" tab on the right. Each folder counts as a tab, inside which you can have tables and groups of tables (created by making further subfolders). For example:
 
 ![](./images/table-structure-example.png)
+
+When you have some tables in the right place, click on the new ninja icon in the scene controls on the left.
 
 ## Credits
 
