@@ -117,7 +117,7 @@ li.scene-control[data-control="table-ninja"], li.scene-control[data-control="tab
     height: 100%;
     background-color: #444;
     color: #e7e0e0;
-    z-index: 3;
+    z-index: 5;
 }
 .tninja-choose h2 {
     padding: 10px;
