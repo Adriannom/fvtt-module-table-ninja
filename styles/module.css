@@ -13,11 +13,11 @@ li.scene-control[data-control="table-ninja"], li.scene-control[data-control="tab
 #tninja-prime .window-content {
     padding: 0;
 }
-.tninja-content {
-    padding: 10px 10px 50px 10px;
+.tninja-content .tab.active {
+    padding: 53px 10px 50px 10px;
     position:relative;
 }
-.tninja-content, .tninja-group {
+.tninja-content .tab.active, .tninja-group {
     align-content: flex-start;
     flex-direction: row;
     display: flex;
@@ -27,9 +27,12 @@ li.scene-control[data-control="table-ninja"], li.scene-control[data-control="tab
 /* Tabs & Controls */
 
 .tninja-tabs {
+    position: absolute;
+    width: 100%;
     background-color: #333;
     color: #fff;
     padding: 0 5px;
+    z-index: 4;
 }
 .tninja-tabs .item {
     padding: 10px;
@@ -58,7 +61,7 @@ li.scene-control[data-control="table-ninja"], li.scene-control[data-control="tab
     border: 1px solid #bbb;
     margin: 5px 5px 15px 5px;
     border-radius: 7px;
-    width: 100%;
+    width: calc(100% - 10px);
 }
 .tninja-group h2 {
     width: 100%;
