@@ -1,28 +1,53 @@
-
-    
 {{#if this.data.childEntities.length}}
     {{#if this.data.content}}
         <p>You have tables in the root Table Ninja folder, move them into subfolders to see them.</p>
     {{else}}
         <section class="tninja-tab-content">
+            <script type="text/javascript">
+
+                function overflowManager(id) {
+                    // If content is overflowing, set a class on the element indicating as much.
+                    let element = document.getElementById("tninja-table-" + id);
+                    console.debug(element);
+                    let text = document.getElementById("tninja-text-" + id);
+                    console.debug(text);
+                    if (text.scrollHeight > element.clientHeight || text.scrollWidth > element.clientWidth) {
+                        element.classList.add("tninja-overflowing");
+                    } else {
+                        element.classList.remove("tninja-overflowing");
+                    }
+                };
+
+                function tninjaCopyToClipboard(id) {
+                    // Create a textarea to copy from, because other methods don't work in Foundry.
+                    let element = document.getElementById(id);
+                    let textarea = document.createElement('textarea');
+                    textarea.value = element.innerText;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                }
+
+            </script>
             <nav class="tninja-tabs tabs">
                 {{#each this.data.childEntities}}
                     {{#if this.isFolder}}
-                        <a class="item" data-tab="{{this.id}}"><i class="fas fa-folder"></i> {{this.name}}</a>
+                        <a class="item" data-tab="tab-{{this.id}}"><i class="fas fa-folder"></i> {{this.name}}</a>
                     {{/if}}
                 {{/each}}
             </nav>
             <div class="tninja-content">
                 {{#each this.data.childEntities}}
-                    <div class="tab" data-tab="{{this.id}}">
-                            {{#each this.childEntities}}
-                                {{#if this.isFolder}}
-                                    {{> "modules/table-ninja/templates/partials/group.hbs"}}
-                                {{else}}
-                                    {{> "modules/table-ninja/templates/partials/table.hbs"}}
-                                {{/if}}
-                            {{/each}}
-                        </div>
+                    <div class="tab" data-tab="tab-{{this.id}}">
+                        {{#each this.childEntities}}
+                            {{#if this.isFolder}}
+                                {{> "modules/table-ninja/templates/partials/group.hbs"}}
+                            {{else}}
+                                {{> "modules/table-ninja/templates/partials/table.hbs"}}
+                            {{/if}}
+                        {{/each}}
+                    </div>
                 {{/each}}
             </div>
         </section>
@@ -32,33 +57,6 @@
     <p>You can also categorise things by making subfolders!</p>
 {{/if}}
 
-
-
 <div class="tninja-controls">
     <button onclick="ui.tableNinja.refresh()"><i class="fa fa-random"></i> Refresh</button>
 </div>
-
-<script type="text/javascript">
-
-    function overflowManager(id) {
-        // If content is overflowing, set a class on the element indicating as much.
-        let element = document.getElementById(id);
-        if (element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth) {
-            element.classList.add("tninja-overflowing");
-        } else {
-            element.classList.remove("tninja-overflowing");
-        }
-    };
-
-    function tninjaCopyToClipboard(id) {
-        // Create a textarea to copy from, because other methods don't work in Foundry.
-        let element = document.getElementById(id);
-        let textarea = document.createElement('textarea');
-        textarea.value = element.innerText;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
-    }
-
-</script>

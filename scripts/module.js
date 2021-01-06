@@ -13,7 +13,7 @@ class TableNinja extends Application {
                 {
                     contentSelector: '.tninja-tab-content',
                     navSelector: '.tninja-tabs',
-                    initial: 'bRDmKm88zkVBMvJB'
+                    initial: ''
                 }
             ],
             classes: ["sheet", "actor"],

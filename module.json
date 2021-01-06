@@ -2,7 +2,7 @@
   "name": "table-ninja",
   "title": "Table Ninja",
   "description": "Quickly derive a whole host of random data from various tables for your perusal.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "minimumCoreVersion": "0.6.2",
   "compatibleCoreVersion": "0.7.9",
   "author": "Adriannom",
