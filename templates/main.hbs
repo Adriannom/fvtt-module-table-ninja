@@ -8,9 +8,7 @@
                 function overflowManager(id) {
                     // If content is overflowing, set a class on the element indicating as much.
                     let element = document.getElementById("tninja-table-" + id);
-                    console.debug(element);
                     let text = document.getElementById("tninja-text-" + id);
-                    console.debug(text);
                     if (text.scrollHeight > element.clientHeight || text.scrollWidth > element.clientWidth) {
                         element.classList.add("tninja-overflowing");
                     } else {
