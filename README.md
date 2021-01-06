@@ -16,7 +16,7 @@ Maybe you have a whole bunch of tables for use in game that you never use becaus
 
 It works like this:
 
-1. At the click of a button it shows a random result from each table all in the same window.
+1. At the click of a button it shows random results from sets of chosen tables all in the same window.
 2. If you're not happy with a result, you can reroll that table or all the tables at once.
 3. If you need to quickly vet results, instead of rerolling you can peruse a big random selection of results from a table.
 4. You can click the copy button to easily copy a result for use elsewhere.
