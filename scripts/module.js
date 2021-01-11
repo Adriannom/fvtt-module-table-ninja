@@ -197,3 +197,15 @@ Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
     }
 
 });
+
+Handlebars.registerHelper('partial', function(name, data) {
+    var template, partial = Handlebars.partials[config.templatePaths[name]];
+    // Compile if not already compiled.
+    if (typeof partial !== 'function') {
+        template = Handlebars.compile(partial);
+    } else {
+        template = partial;
+    }
+    var output = template(data);
+    return new Handlebars.SafeString(output);
+});

@@ -40,9 +40,9 @@
                     <div class="tab" data-tab="tab-{{this.id}}">
                         {{#each this.childEntities}}
                             {{#if this.isFolder}}
-                                {{> "modules/table-ninja/templates/partials/group.hbs"}}
+                                {{partial 'group' this}}
                             {{else}}
-                                {{> "modules/table-ninja/templates/partials/table.hbs"}}
+                                {{partial 'table' this}}
                             {{/if}}
                         {{/each}}
                     </div>
