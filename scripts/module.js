@@ -166,7 +166,7 @@ async function preloadHandlebarsTemplates() {
 };
 
 Handlebars.registerHelper('tableNinjaSelectedText', function (table) {
-    return table.rolls[table.selected].text || table.roles[table.selected].data.text;
+    return table.rolls[table.selected].text || table.rolls[table.selected].data.text;
 })
 
 Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
